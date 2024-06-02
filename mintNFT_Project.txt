@@ -1,0 +1,56 @@
+// Define the console object for Rhino
+var console = {
+    log: function(message) {
+        java.lang.System.out.println(message);
+    }
+};
+
+// Create a variable to hold your NFTs
+var nftCollection = [];
+
+// This function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata,
+// and store it in the variable above.
+function mintNFT(name, eyeColor, shirtType, bling) {
+    var nft = {
+        name: name,
+        eyeColor: eyeColor,
+        shirtType: shirtType,
+        bling: bling
+    };
+    nftCollection.push(nft);
+    console.log("Minted: " + name);
+}
+
+// Create a "loop" that will go through an "array" of NFTs
+// and print their metadata with console.log()
+function listNFTs() {
+    for (var i = 0; i < nftCollection.length; i++) {
+        var nft = nftCollection[i];
+        console.log("NFT " + (i + 1) + ":");
+        console.log("Name: " + nft.name);
+        console.log("Eye Color: " + nft.eyeColor);
+        console.log("Shirt Type: " + nft.shirtType);
+        console.log("Bling: " + nft.bling);
+        console.log('---------------------');
+    }
+}
+
+// Print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    console.log("Total NFTs minted: " + nftCollection.length);
+    return nftCollection.length;
+}
+
+// Call your functions below this line
+
+// Minting some NFTs
+mintNFT("CoolCat", "Blue", "T-Shirt", "Gold Chain");
+mintNFT("FancyPanda", "Green", "Hoodie", "Diamond Earring");
+mintNFT("EpicElephant", "Brown", "Jacket", "Sunglasses");
+
+// Listing all NFTs
+listNFTs();
+
+// Getting the total supply of NFTs
+getTotalSupply();
